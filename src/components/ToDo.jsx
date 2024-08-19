@@ -1,5 +1,6 @@
 import React from 'react'
 import todo_icon from '../assets/todo_icon.png'
+import TodoItems from './TodoItems'
 
 const 
 
@@ -31,6 +32,9 @@ ToDo
             {/* Todo Lists */}
 
             <div > 
+              <TodoItems text=" Learn Coding" />
+              <TodoItems text=" Learn Coding From GreatStack"/>
+              
 
 
             </div>
