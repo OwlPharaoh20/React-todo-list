@@ -5,7 +5,8 @@ import TodoItems from './TodoItems'
 const ToDo 
 = () => {
 
-  const [todoList, setTodoList] = useState([]);
+  const [todoList, setTodoList] = useState(localStorage.getItem("todos")
+   ? JSON.parse(localStorage.getItem("todos")) : []);
 
   const inputRef = useRef();
 
@@ -33,8 +34,8 @@ const deleteTodo = (id) => {
   })
 }
 
-
-const toggle = () => {
+{/* Ensure to review this function,or check the return statement. Then inspect the prev/prvtodos conflict*/}
+const toggle = (id) => {
       setTodoList((prevTodos) => {
         return prevTodos.map( (todo) => {
       if(todo.id === id) {
@@ -50,7 +51,7 @@ const toggle = () => {
 
 
 useEffect(() => {
-  console.log(todoList);
+  localStorage.setItem("todos", JSON.stringify(todoList));
   
 }, [todoList])
 
